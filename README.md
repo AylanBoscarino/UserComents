@@ -25,3 +25,6 @@ To run the application (and the Mongo database) you can use:
 ```
 docker-compose up
 ```
+
+
+(Aylan Boscarino)[https://github.com/AylanBoscarino]
