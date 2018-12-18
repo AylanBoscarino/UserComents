@@ -1,10 +1,10 @@
 const Router = require('express').Router();
-const usuariosRouter = require('./usuarios');
-const linguagensRouter = require('./linguagens');
+// const usuariosRouter = require('./usuarios');
 
 const endpoints = {
-  message: 'essa é a API da nossa rede social',
-  endpoints: {}
+    message: 'essa é a minha API',
+
+    endpoints: {}
 };
 
 Router.get('/', (req, res, next) => res.json(endpoints));

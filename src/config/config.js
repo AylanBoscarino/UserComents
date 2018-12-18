@@ -1,7 +1,7 @@
 module.exports = {
     development: {
         port: 3000,
-        host: '192.168.1.52',
+        host: '192.168.0.31',
         database: {
             host: 'mongo',
             port: 27017,
