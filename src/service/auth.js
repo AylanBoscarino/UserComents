@@ -9,12 +9,10 @@ const gerarJWT = (id, email, nome, role) => {
     const secret = gerarSegredo();
     const token = sign(
         {
-            usuario: {
-                id,
-                email,
-                nome,
-                admin: role === 'admin'
-            }
+            id,
+            email,
+            nome,
+            admin: role === 'admin'
         },
         secret
     );

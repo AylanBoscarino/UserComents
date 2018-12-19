@@ -11,7 +11,10 @@ const listarComentariosAtivos = async (request, response, next) => {
 const criarComentario = async (request, response, next) => {
     try {
         return response.json(
-            await repository.criarComentario(res.locals.payload._id, req.body)
+            await repository.criarComentario(
+                response.locals.payload.id,
+                request.body.corpo
+            )
         );
     } catch (error) {
         return next(error);
@@ -32,9 +35,9 @@ const editarComentario = async (request, response, next) => {
     try {
         return response.json(
             await repository.editarComentario(
-                res.locals.payload._id,
-                req.params.id,
-                request.body
+                response.locals.payload.id,
+                request.params.id,
+                request.body.corpo
             )
         );
     } catch (error) {
@@ -57,4 +60,13 @@ const listarTodosComentarios = async (request, response, next) => {
     } catch (error) {
         return next(error);
     }
+};
+
+module.exports = {
+    listarComentariosAtivos,
+    listarTodosComentarios,
+    removerComentario,
+    editarComentario,
+    corpoComentario,
+    criarComentario
 };

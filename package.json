@@ -1,11 +1,11 @@
 {
-    "name": "Sistema de Comentários Autenticados",
+    "name": "usecoments",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "start": "node src/app.js"
+        "start": "nodemon src/app.js -L"
     },
     "keywords": [],
     "author": "",

@@ -6,10 +6,12 @@ Router.get('/', controller.listarComentariosAtivos);
 
 Router.use(autenticarRequisicao);
 
-Router.post('/', controler.criarComentario);
+Router.post('/', controller.criarComentario);
 
 Router.get('/:id', controller.corpoComentario);
 
 Router.put('/:id', controller.editarComentario);
 
 Router.delete('/:id', controller.removerComentario);
+
+module.exports = Router;
