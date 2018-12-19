@@ -2,10 +2,7 @@ const { sign, verify } = require('jsonwebtoken');
 const { randomBytes, pbkdf2Sync } = require('crypto');
 
 const gerarSegredo = () => {
-    return (
-        process.env.JWT_SECRET ||
-        '1C3C7E1694F1E9DAD939399E87E5FFB5DF06B2327CA31B409CB329B1430F1CD3'
-    );
+    return process.env.JWT_SECRET || 'NÃO CONTE A NINGUÉM, É SEGREDO';
 };
 
 const gerarJWT = (id, email, nome, role) => {
