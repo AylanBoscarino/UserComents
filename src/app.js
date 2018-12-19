@@ -17,6 +17,6 @@ app.use(routes);
 app.use(internalServer);
 app.use(notFound);
 
-app.listen(port () => {
+app.listen(port, () => {
     console.log(`ouvindo ao endereço ${host} na porta ${port}`);
 });
