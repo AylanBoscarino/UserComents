@@ -7,7 +7,7 @@ const {
 const connect = () => {
     mongoose.promise = global.Promise;
     mongoose.connect(
-        `${host}/${name}`,
+        host
         { useNewUrlParser: true }
     );
 };
