@@ -9,7 +9,7 @@ module.exports = {
         }
     },
     production: {
-        port: process.env.EV_PORT,
+        port: process.env.PORT,
         host: process.env.EV_HOST,
         database: {
             host: process.env.DB_HOST,
