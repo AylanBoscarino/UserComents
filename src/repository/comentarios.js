@@ -1,10 +1,16 @@
 const Comentario = require('../model/Comentario');
 const Usuario = require('../model/Usuario');
 
-const criarComentario = (autor, corpo) => {
+const criarComentario = async (autor, corpo) => {
     const data = new Date();
     const dataCriacao = Math.round(data.getTime() / 1000);
-    const comentario = new Comentario({ autor, corpo, dataCriacao });
+    const dadosAutor = await Usuario.findOne(
+        { _id: autor },
+        { _id: 0, nome: 1 }
+    );
+    const nomeAutor = dadosAutor.nome;
+    console.log({ nomeAutor });
+    const comentario = new Comentario({ autor, corpo, dataCriacao, nomeAutor });
     comentario.save();
     return comentario;
 };
@@ -17,7 +23,7 @@ const removerComentario = idComentario => {
 };
 
 const corpoComentario = idComentario => {
-    return Comentario.findOne({ _id: idComentario, ativo: true });
+    return Comentario.findOne({ _id: idComentario, ativo: true }, { autor: 0 });
 };
 
 const editarComentario = async (idUsuario, idComentario, corpo) => {
@@ -39,12 +45,12 @@ const editarComentario = async (idUsuario, idComentario, corpo) => {
     return comentario;
 };
 
-const listarComentariosAtivos = () => {
-    return Comentario.find({ ativo: true });
+const listarComentariosAtivos = async () => {
+    return Comentario.find({ ativo: true }, { autor: 0 });
 };
 
 const listarTodosComentarios = () => {
-    return Comentario.find({});
+    return Comentario.find({}, { autor: 0 });
 };
 
 module.exports = {
