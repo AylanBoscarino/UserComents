@@ -5,7 +5,7 @@ services:
         container_name: web
         ports:
             - 3004:3000
-        networks:
+        networks: 
             - nodeapp
         environment:
             - PORT=3000
